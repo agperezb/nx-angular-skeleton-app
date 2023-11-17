@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'nx-angular-skeleton-app-nx-welcome',
+  selector: 'app-nx-welcome',
   standalone: true,
   imports: [CommonModule],
   template: `
