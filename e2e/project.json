@@ -1,0 +1,33 @@
+{
+  "name": "e2e",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "nx-angular-skeleton-app:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nx-angular-skeleton-app:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "nx-angular-skeleton-app:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nx-angular-skeleton-app"]
+}
